@@ -1,0 +1,59 @@
+.contact {
+  position: relative; /* needed for overlay */
+  padding: 50px 20px;
+  text-align: center;
+  color: white;
+
+  /* Coding/phone-themed background image */
+  background-image: url('https://images.unsplash.com/photo-1581092914510-7f9ff4edfc15?auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background-color: rgba(0,0,0,0.65); /* darker overlay for readability */
+  z-index:0;
+}
+
+.contact > * {
+  position: relative;
+  z-index:1;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  text-decoration: none;
+  color: white;
+  background-color: #282c34;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.contact-links a:hover {
+  background-color: #61dafb;
+  color: #282c34;
+}

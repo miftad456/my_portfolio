@@ -9,7 +9,7 @@ const projectData = [
     tech: ["React", "Node.js", "MongoDB", "Express"],
     description:
       "A full-featured task manager for individuals and teams. Members can sign up, managers can assign and track tasks, and every member stays in sync — with real-time updates and a clean dashboard.",
-    github: "https://github.com/miftad456/task-management-swart-omega",
+    github: "https://github.com/miftad456/task-management",
     live: "https://task-management-swart-omega.vercel.app",
     image: "/photo/taskflowpicture.jpeg",
   },
@@ -19,7 +19,7 @@ const projectData = [
     tech: ["Web", "API", "Database"],
     description:
       "Srahub connects developers in Ethiopia with employers. Developers build their profiles, browse posted jobs, and get hired — while employers post jobs and manage candidates. Built with a focus on the local dev community.",
-    github: "https://github.com/miftad456/srahub-web",
+    github: "https://github.com/A2SV-ASTU/srahub",
     live: "https://srahub-web.firaolkef.workers.dev",
     image: "/photo/srahubpicture.jpeg",
   },

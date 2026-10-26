@@ -20,9 +20,7 @@ const Hero = () => {
           <p className="hero-title">Software Engineer & Backend Specialist</p>
           
           <p className="hero-subtitle">
-            Crafting scalable backend architectures, clean RESTful APIs, and full-stack web applications. 
-            Third-year Software Engineering student at Adama Science and Technology University (ASTU) 
-            and Developer at Africa to Silicon Valley (A2SV).
+            I build scalable backend systems, modern web and mobile applications, and AI-powered solutions that solve real-world problems. From robust APIs and high-performance architectures to intelligent automation and seamless user experiences, I turn ambitious ideas into reliable, production-ready software.
           </p>
 
           <div className="hero-actions">

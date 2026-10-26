@@ -11,7 +11,7 @@ const projectData = [
       "A full-featured task manager for individuals and teams. Members can sign up, managers can assign and track tasks, and every member stays in sync — with real-time updates and a clean dashboard.",
     github: "https://github.com/miftad456/task-management-swart-omega",
     live: "https://task-management-swart-omega.vercel.app",
-    image: "/assets/task-mgmt.png",
+    image: "/photo/taskflowpicture.jpeg",
   },
   {
     title: "Srahub",
@@ -21,7 +21,7 @@ const projectData = [
       "Srahub connects developers in Ethiopia with employers. Developers build their profiles, browse posted jobs, and get hired — while employers post jobs and manage candidates. Built with a focus on the local dev community.",
     github: "https://github.com/miftad456/srahub-web",
     live: "https://srahub-web.firaolkef.workers.dev",
-    image: "/assets/srahub.png",
+    image: "/photo/srahubpicture.jpeg",
   },
 ];
 

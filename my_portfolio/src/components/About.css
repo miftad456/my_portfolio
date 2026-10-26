@@ -43,13 +43,14 @@
   animation: ring-pulse 3s ease-in-out infinite;
 }
 
+@keyframes fade-in {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
 @keyframes ring-pulse {
   0%, 100% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.25); }
   50% { box-shadow: 0 0 50px rgba(99, 102, 241, 0.5); }
-}
-
-.about-text {
-  padding-right: 10px;
 }
 
 .about-text .lead {
@@ -112,9 +113,9 @@
   margin-bottom: 2px;
 }
 
-@keyframes fade-in {
-  0% { opacity: 0; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
+.service-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
 }
 
 @media (max-width: 768px) {

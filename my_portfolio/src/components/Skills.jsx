@@ -93,8 +93,12 @@ const Skills = () => {
           <span className="title-icon">▸</span> Skills
         </h2>
         <div className="skills-grid">
-          {categories.map((cat) => (
-            <div key={cat.id} className="skill-card">
+          {categories.map((cat, cardIndex) => (
+            <div
+              key={cat.id}
+              className="skill-card"
+              style={{ "--card-index": cardIndex }}
+            >
               <div className="skill-card-header">
                 <span className="skill-icon">{cat.title.charAt(0)}</span>
                 <div className="skill-card-text">
@@ -104,7 +108,11 @@ const Skills = () => {
               </div>
               <div className="skill-list">
                 {cat.items.map((item, idx) => (
-                  <div key={idx} className="skill-item">
+                  <div
+                    key={idx}
+                    className="skill-item"
+                    style={{ "--item-index": idx }}
+                  >
                     <span className="skill-item-icon">{item.icon}</span>
                     <span className="skill-item-name">{item.name}</span>
                   </div>

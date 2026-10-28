@@ -1,48 +1,82 @@
 /* src/components/Skills.css */
 .skills {
   background:
-    radial-gradient(500px 400px at 80% 10%, rgba(99, 102, 241, 0.06), transparent 50%),
-    radial-gradient(400px 400px at 10% 90%, rgba(139, 92, 246, 0.05), transparent 50%),
+    radial-gradient(500px 400px at 80% 10%, rgba(99, 102, 241, 0.08), transparent 50%),
+    radial-gradient(400px 400px at 10% 90%, rgba(139, 92, 246, 0.07), transparent 50%),
     var(--bg);
+  padding: 100px 0;
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
+/* Card Block-by-Block Entry & Hover Animation */
 .skill-card {
-  background: var(--surface);
+  background: var(--surface, #1e293b);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius);
+  border-radius: var(--radius, 16px);
   padding: 24px;
-  transition: border-color 0.2s, transform 0.2s;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: card-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(0.1s + (var(--card-index) * 0.12s));
+  
+  /* Smooth transition for moving/hover effects */
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease, 
+              background 0.3s ease;
 }
 
+/* Hover Effect: The card moves up, scales slightly, and glows */
 .skill-card:hover {
-  border-color: rgba(99, 102, 241, 0.3);
-  transform: translateY(-4px);
+  border-color: rgba(129, 140, 248, 0.5);
+  transform: translateY(-8px) scale(1.02);
+  background: linear-gradient(145deg, rgba(30, 41, 59, 1) 0%, rgba(49, 46, 129, 0.2) 100%);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45), 0 0 25px rgba(99, 102, 241, 0.2);
+}
+
+@keyframes card-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .skill-card-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 14px;
+  margin-bottom: 18px;
 }
 
 .skill-icon {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 900;
-  color: var(--accent);
-  background: rgba(99, 102, 241, 0.12);
-  border-radius: 12px;
-  width: 48px;
-  height: 48px;
+  color: #818cf8;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.15));
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 14px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 12px rgba(99, 102, 241, 0.15);
+  transition: transform 0.3s ease;
+}
+
+/* Subtle bounce for the card icon when hovering the parent card */
+.skill-card:hover .skill-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .skill-card-text {
@@ -50,15 +84,15 @@
 }
 
 .skill-title {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  color: var(--text);
-  margin-bottom: 6px;
+  color: var(--text, #f8fafc);
+  margin-bottom: 4px;
 }
 
 .skill-subtitle {
   font-size: 0.8rem;
-  color: var(--muted);
+  color: var(--muted, #94a3b8);
   line-height: 1.5;
 }
 
@@ -68,23 +102,40 @@
   gap: 8px;
 }
 
+/* Individual Skill Badge Stagger Animation */
 .skill-item {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: var(--bg);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--bg, #0f172a);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
-  padding: 6px 12px;
+  padding: 7px 14px;
   font-size: 0.78rem;
-  color: var(--muted);
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  color: var(--muted, #cbd5e1);
+  opacity: 0;
+  transform: scale(0.9) translateY(10px);
+  animation: item-scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(0.3s + (var(--card-index) * 0.12s) + (var(--item-index) * 0.035s));
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
 .skill-item:hover {
-  background: rgba(99, 102, 241, 0.12);
-  color: var(--accent);
-  border-color: rgba(99, 102, 241, 0.2);
+  background: rgba(99, 102, 241, 0.25);
+  color: #a5b4fc;
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-3px) scale(1.05);
+}
+
+@keyframes item-scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .skill-item-icon {
@@ -96,7 +147,8 @@
   font-weight: 500;
 }
 
-@media (max-width: 900px) {
+/* Responsive Grid Adjustments */
+@media (max-width: 992px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }

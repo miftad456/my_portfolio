@@ -3,6 +3,19 @@ import React from "react";
 import "./Hero.css";
 
 const Hero = () => {
+  // Subtitle text split into individual words
+  const subtitleText =
+    "I build scalable backend systems, modern web and mobile applications, and AI-powered solutions that solve real-world problems. From robust APIs and high-performance architectures to intelligent automation and seamless user experiences, I turn ambitious ideas into reliable, production-ready software.";
+  
+  const subtitleWords = subtitleText.split(" ");
+
+  // Key impact words to highlight with vibrant multi-color gradients
+  const highlightWords = [
+    "scalable", "backend", "systems,", "ai-powered", "solutions", 
+    "robust", "apis", "high-performance", "architectures", 
+    "intelligent", "automation,", "reliable,", "production-ready", "software."
+  ];
+
   return (
     <section className="hero" id="home">
       <div className="hero-container">
@@ -19,8 +32,23 @@ const Hero = () => {
           </h1>
           <p className="hero-title">Software Engineer & Backend Specialist</p>
           
+          {/* Word-by-Word Animated & Multi-Colored Subtitle Paragraph */}
           <p className="hero-subtitle">
-            I build scalable backend systems, modern web and mobile applications, and AI-powered solutions that solve real-world problems. From robust APIs and high-performance architectures to intelligent automation and seamless user experiences, I turn ambitious ideas into reliable, production-ready software.
+            {subtitleWords.map((word, index) => {
+              // Check if word should be color-accented
+              const cleanWord = word.toLowerCase().replace(/[^a-z-]/g, '');
+              const isHighlighted = highlightWords.includes(cleanWord);
+
+              return (
+                <span
+                  key={index}
+                  className={`hero-word ${isHighlighted ? "hero-word-accent" : ""}`}
+                  style={{ "--word-index": index }}
+                >
+                  {word}&nbsp;
+                </span>
+              );
+            })}
           </p>
 
           <div className="hero-actions">
@@ -32,7 +60,7 @@ const Hero = () => {
             </a>
           </div>
 
-          {/* Highlights / Stats (Removed 2 Live Projects) */}
+          {/* Highlights / Stats */}
           <div className="hero-stats">
             <div className="hero-stat">
               <span className="hero-stat-number">3+</span>
